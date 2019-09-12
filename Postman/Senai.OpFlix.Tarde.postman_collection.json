@@ -119,6 +119,16 @@
 				{
 					"name": "Plataforma.Listar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGF2ZSI6IjAxMjM0NTY3ODkiLCJlbWFpbCI6ImVyaWtAZW1haWwuY29tIiwianRpIjoiMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNTY4MzE3Mjc4LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.QX9aL-ZEfBrtOfHDKCJlSFbC3lp59_PMY6G8jh0ZE14",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -214,6 +224,171 @@
 							"path": [
 								"api",
 								"plataforma"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FilmeSeries",
+			"item": [
+				{
+					"name": "FilmeSeries.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/filmeSeries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"filmeSeries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilmeSeries.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/filmeSeries/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"filmeSeries",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilmeSeries.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"excluido\",\n    \"dataLancamento\": \"2008-11-05T00:00:00\",\n    \"idCategoria\": 1,\n    \"idIdentificacao\": 1,\n    \"sinopse\": \"Uaaaauuuu\",\n    \"tempoDuracao\": 223,\n    \"veiculo\": \"CINEMA\",\n    \"idClassificacao\": 1,\n    \"idPlataforma\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/filmeSeries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"filmeSeries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilmeSeries.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idFs\" : 26,\r\n    \"titulo\": \"NseiNomeDeFilmes\",\r\n    \"dataLancamento\": \"2001-02-25T00:00:00\",\r\n    \"idCategoria\": 1,\r\n    \"idIdentificacao\": 1,\r\n    \"sinopse\": \"NseiNomeDeFilmes e to sem criatividade\",\r\n    \"tempoDuracao\": 115,\r\n    \"veiculo\": \"CINEMA\",\r\n    \"idClassificacao\": 1,\r\n    \"idPlataforma\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/filmeSeries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"filmeSeries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilmeSeries.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/filmeSeries/27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"filmeSeries",
+								"27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Usuario.Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\" : \"erik@email.com\",\n\t\"Senha\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
 							]
 						}
 					},

@@ -1,4 +1,7 @@
-﻿using Senai.OpFlix.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.OpFlix.WebApi.Domains;
+using Senai.OpFlix.WebApi.Interfaces;
+using Senai.OpFlix.WebApi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,16 +9,19 @@ using System.Threading.Tasks;
 
 namespace Senai.OpFlix.WebApi.Repositories
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
-        public void CadastrarComum(Usuario usuario)
+        public Usuario BuscarPorEmailESenha(LoginViewModel login)
         {
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                ctx.Usuario.Add(usuario);
-                ctx.SaveChanges();
+                Usuario usuario = ctx.Usuario.Include(x => x.IdTipoNavigation).FirstOrDefault(x => x.Email == login.Email && x.Senha == login.Senha);
+                if (usuario == null)
+                    return null;
+                return usuario;
             }
-        } 
-            
+        }
+
+
     }
 }

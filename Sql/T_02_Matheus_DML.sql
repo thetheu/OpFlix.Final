@@ -13,6 +13,10 @@ SELECT * FROM TipoUsuario
 INSERT INTO TipoUsuario (Tipo) VALUES ('ADMINISTRAÇÃO')
 									 ,('CLIENTE');
 
+UPDATE TipoUsuario
+SET Tipo = 'ADMINISTRADOR'
+WHERE Tipo = 'ADMINISTRAÇÃO'
+
 
 SELECT * FROM Identificacao
 INSERT INTO Identificacao(Nome) VALUES ('Filme')

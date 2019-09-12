@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.OpFlix.WebApi.Domains;
@@ -20,7 +21,9 @@ namespace Senai.OpFlix.WebApi.Controllers
         {
             PlataformaRepository = new PlataformaRepository();
         }
-        
+
+
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -28,6 +31,7 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
 
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPost]
         public IActionResult Cadastrar (Plataforma plataforma)
         {
@@ -43,6 +47,7 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
 
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPut]
         public IActionResult Atualizar(Plataforma plataforma)
         {
@@ -62,6 +67,7 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
 
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
