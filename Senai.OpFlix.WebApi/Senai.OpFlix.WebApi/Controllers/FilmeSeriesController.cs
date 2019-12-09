@@ -23,7 +23,7 @@ namespace Senai.OpFlix.WebApi.Controllers
             FilmeSeriesRepository = new FilmeSeriesRepository();
         }
 
-        [Authorize(Roles = "ADMINISTRADOR")]
+        [Authorize]
         [HttpGet]
         public IActionResult Listar()
         {

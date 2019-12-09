@@ -57,3 +57,5 @@ CREATE TABLE Plataforma
 
 ALTER TABLE FilmeSeries
 ALTER COLUMN Sinopse VARCHAR(600)
+
+select * from Usuario 

@@ -59,13 +59,18 @@ values ('La Casa De Papel 3 temp', 'Oito habilidosos ladrões se trancam na Casa 
 
 
 --- Incluir uma imagem para cada usuário cadastrado;
-ALTER TABLE Usuario ADD Foto IMAGE;
+
+alter table Usuario drop column foto
+ALTER TABLE Usuario Alter column Foto text
 SELECT * FROM Usuario
 INSERT INTO Usuario (Nome, Email, Senha, IdTipo, Foto) VALUES ('Erik', 'erik@email.com', '123456', 1, 'Foto_1.jpeg')
 														,('Cassiana', 'cassiana@email.com', '123456', 1, 'Foto_2.jpeg')
 														,('Helena', 'helena@email.com', '123456', 2, 'Foto_3.jpeg')
 														,('Roberto', 'rob@email.com', '3110', 2, 'Foto_4.jpeg');
 
+
+update usuario set foto = 'https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-0/p206x206/390028_100809330084675_858286454_n.jpg?_nc_cat=100&_nc_ohc=TUsry8okLKUAQn1bEyKco9Zg6jOdjpKifBZbuDdWOSZ-tYJGrfsjFmNRQ&_nc_ht=scontent.fcgh14-1.fna&oh=96815e4aa270b25d49947db74e5e40d7&oe=5E7DBF67' where idusuario = 15
+			
 
 -- Atualizar o usuário Helena para administrador;
 SELECT * FROM Usuario

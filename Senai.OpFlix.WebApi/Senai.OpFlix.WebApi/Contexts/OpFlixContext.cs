@@ -28,7 +28,7 @@ namespace Senai.OpFlix.WebApi.Domains
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_OpFlix;User Id=sa;Pwd=132");
+                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress;Initial Catalog=T_OpFlix;User Id=sa;Pwd=132");
             }
         }
 
@@ -158,7 +158,9 @@ namespace Senai.OpFlix.WebApi.Domains
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Foto).HasColumnType("image");
+                entity.Property(e => e.Foto)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
